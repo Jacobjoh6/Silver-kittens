@@ -9,5 +9,7 @@
  */
 
 addEventListener('keydown', (event) => {
-    console.log(event.key);
+    if (event.code === 'Space') {
+        console.log(`hej`);
+    }
 });
