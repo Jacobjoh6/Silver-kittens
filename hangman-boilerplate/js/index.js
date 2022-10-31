@@ -7,3 +7,7 @@
  document.querySelector('figure').classList.add('legs')
 
  */
+
+addEventListener('keydown', (event) => {
+    console.log(event.key);
+});
