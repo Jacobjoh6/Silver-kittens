@@ -13,6 +13,7 @@ let wordToGuess = wordsOpt[Math.floor(Math.random() * wordsOpt.length)] // slump
 let wordArray = wordToGuess.split(''); //delar upp orden till indivdiella bokstäver
 let hiddenWord = wordArray.map(x => '_'); // visar bokstäverna som _
 let hiddenWord1 = hiddenWord.join(" ");
+let wordArray1 = wordArray.join(" ");
 let ggText = document.querySelector(`#ggtext`);
 const gameOver = document.querySelector(`.gg`);
 const main = document.querySelector(`main`);
@@ -24,8 +25,8 @@ gameOver.style.display = `none`;
 addEventListener('keydown', (event) => {
     for (let i = 0; i < wordsOpt.length; i++) {
         wordsOpt[i] == event.key
-        if (event.code === wordsOpt[i]) {
-            correctWord.innerText = wordToGuess;
+        if (event.key === `m`) {
+            correctWord.innerText = wordArray1;
         } else if (wrongGuesses === 0) {
             document.querySelector('figure').classList.add('scaffold');
             wrongGuesses++
