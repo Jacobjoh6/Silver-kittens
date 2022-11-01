@@ -11,18 +11,18 @@ let wordsOpt = [`hangman`, `silver`, `kittens`];
 let correctWord = document.getElementById(`correctword`);
 let wordToGuess = wordsOpt[Math.floor(Math.random() * wordsOpt.length)]
 let wordArray = wordToGuess.split('');
+let hiddenWord = wordArray.map(x => '_');
 
 
 let answer = null;
 console.log(wordArray);
 
-
-/*const hej = [{ bokstav1: `H`, bokstav2: `E`, bokstav3: `J` }]
 addEventListener('keydown', (event) => {
-    if (event.code === 'Space') {
-        console.log(`hej`);
+    if (event.code === 'wordArray') {
+        correctWord.innerText = `hej`
     } else {
         document.querySelector('figure').classList.add('scaffold')
     }
 });
-*/
+
+console.log(hiddenWord);
