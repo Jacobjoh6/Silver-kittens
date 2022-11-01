@@ -7,22 +7,21 @@
  document.querySelector('figure').classList.add('legs')
 
  */
-let wordsOpt = [`hangman`, `silver`, `kittens`];
-let correctWord = document.getElementById(`correctword`);
-let wordToGuess = wordsOpt[Math.floor(Math.random() * wordsOpt.length)]
-let wordArray = wordToGuess.split('');
-let hiddenWord = wordArray.map(x => '_');
+let wordsOpt = [`hangman`]; // orden som kan väljas
+let correctWord = document.getElementById(`correctword`); //h1 i html där ordet ska synas
+let wordToGuess = wordsOpt[Math.floor(Math.random() * wordsOpt.length)] // slumpar ord från wordOpt
+let wordArray = wordToGuess.split(''); //delar upp orden till indivdiella bokstäver
+let hiddenWord = wordArray.map(x => '_'); // visar bokstäverna som _
 
-
-let answer = null;
-console.log(wordArray);
 
 addEventListener('keydown', (event) => {
-    if (event.code === 'wordArray') {
+    if (event.code === `1`) {
         correctWord.innerText = `hej`
     } else {
         document.querySelector('figure').classList.add('scaffold')
     }
 });
 
+correctWord.innerHTML = hiddenWord;
+console.log(wordArray);
 console.log(hiddenWord);
