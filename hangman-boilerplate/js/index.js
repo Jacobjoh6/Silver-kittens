@@ -20,46 +20,10 @@ const main = document.querySelector(`main`);
 let wrongLetter = document.querySelector(`#wrongLetter`)
 const bodyElem = document.querySelector('body');
 let wrongGuesses = 0;
-//let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 gameOver.style.display = `none`;
 
 correctWord.innerHTML = hiddenWord1;
 
-// addEventListener('keydown', (event) => {
-//     for (let i = 0; i < wordArray.length; i++) {
-//         if (event.key === wordArray[i]) {
-//             console.log(`rätt`);
-//             break;
-//         }
-//     }
-//     wrongLetter.textContent += ` ` + event.key
-//     console.log(event.key)
-// });
-// for (let i = 0; i < wordArray.length; i++) {
-
-// }
-//  if (wrongGuesses === 0) {
-//     document.querySelector('figure').classList.add('scaffold');
-//     wrongGuesses++
-//     console.log(wrongGuesses)
-// } else if (wrongGuesses === 1) {
-//     document.querySelector('figure').classList.add('head')
-//     wrongGuesses++
-//     console.log(wrongGuesses)
-// } else if (wrongGuesses === 2) {
-//     document.querySelector('figure').classList.add('body')
-//     wrongGuesses++
-//     console.log(wrongGuesses)
-// } else if (wrongGuesses === 3) {
-//     document.querySelector('figure').classList.add('arms')
-//     wrongGuesses++
-//     console.log(wrongGuesses)
-// } else if (wrongGuesses === 4) {
-//     document.querySelector('figure').classList.add('legs')
-//     gameOver.style.display = `block`;
-//     ggText.innerText = `Game Over`;
-//     console.log(wrongGuesses);
-//}
 
 
 console.log(wordArray);
@@ -81,13 +45,30 @@ bodyElem.addEventListener('keydown', (event) => {
 
     if (correctGuess === false) {
         console.log('Fel gissning');
-        wrongLetter.textContent += ` ` + event.key
         document.querySelector('figure').classList.add('scaffold');
         wrongGuesses++;
     }
-    if (correctGuess === false && wrongGuesses === 1) {
+    if (correctGuess === false && wrongGuesses === 2) {
         console.log('Fel gissning');
-        wrongLetter.textContent += ` ` + event.key
         document.querySelector('figure').classList.add('head')
+        wrongGuesses++;
     }
+    if (correctGuess === false && wrongGuesses === 4) {
+        console.log('Fel gissning');
+        document.querySelector('figure').classList.add('body')
+        wrongGuesses++;
+    }
+    if (correctGuess === false && wrongGuesses === 6) {
+        console.log('Fel gissning');
+        document.querySelector('figure').classList.add('arms')
+        wrongGuesses++;
+    }
+    if (correctGuess === false && wrongGuesses === 8) {
+        console.log('Fel gissning');
+        document.querySelector('figure').classList.add('legs')
+        gameOver.style.display = `block`;
+        ggText.innerText = `Game Over`;
+        console.log(wrongGuesses);
+    }
+    wrongLetter.textContent += ` ` + event.key
 });
