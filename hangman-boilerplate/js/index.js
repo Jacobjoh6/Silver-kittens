@@ -7,7 +7,7 @@
  document.querySelector('figure').classList.add('legs')
 
  */
-let wordsOpt = [`hangman`]; // orden som kan väljas
+let wordsOpt = [`halloween`, `scream`, `psycho`, `insidious`, `hereditary`]; // orden som kan väljas
 let correctWord = document.getElementById(`correctword`); //h1 i html där ordet ska synas
 let wordToGuess = wordsOpt[Math.floor(Math.random() * wordsOpt.length)] // slumpar ord från wordOpt
 let wordArray = wordToGuess.split(''); //delar upp orden till indivdiella bokstäver
@@ -19,10 +19,12 @@ const gameOver = document.querySelector(`.gg`);
 const main = document.querySelector(`main`);
 let wrongLetter = document.querySelector(`#wrongLetter`)
 const bodyElem = document.querySelector('body');
+const ul = document.querySelector('ul');
 let wrongGuesses = 0;
 gameOver.style.display = `none`;
 
-correctWord.innerHTML = hiddenWord1;
+ul.innerHTML = hiddenWord1;
+
 
 
 
@@ -38,11 +40,19 @@ bodyElem.addEventListener('keydown', (event) => {
         if (keyPressed === wordArray[i]) {
             console.log('Rätt bokstav');
             correctGuess = true;
-
+            hiddenWord[i] = keyPressed;
+            console.log(hiddenWord);
             // Vad ska vi göra här?
         }
     }
+    ul.innerHTML = ``;
+    for (let i = 0; i < hiddenWord.length; i++) {
+        let hiddenLetter = hiddenWord[i];
+        let li = `<li>${hiddenLetter}</li>`;
 
+        ul.insertAdjacentHTML('beforeend', li);
+
+    }
     if (correctGuess === false) {
         console.log('Fel gissning');
         document.querySelector('figure').classList.add('scaffold');
@@ -70,5 +80,6 @@ bodyElem.addEventListener('keydown', (event) => {
         ggText.innerText = `Game Over`;
         console.log(wrongGuesses);
     }
-    wrongLetter.textContent += ` ` + event.key
+    wrongLetter.textContent += ` ` + event.key;
+
 });

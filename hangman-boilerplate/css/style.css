@@ -25,3 +25,13 @@ figure.arms svg #arms {
 figure.legs svg #legs {
     opacity: 1;
 }
+
+ul {
+    font-size: 2rem;
+}
+
+ul>li {
+    display: inline-block;
+    margin: 0.5rem;
+    font-size: 2rem;
+}
