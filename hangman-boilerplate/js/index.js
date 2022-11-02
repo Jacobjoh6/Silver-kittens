@@ -52,8 +52,9 @@ bodyElem.addEventListener('keydown', (event) => {
     }
     if (ul.innerText === wordToGuess) {
         gameOver.style.display = `block`;
-        ggText.innerText = `Du vann!`;
+        ggText.innerText = `Rätt Ord!`;
         clue.style.display = `none`;
+        return;
     }
     if (correctGuess === false) {
         console.log('Fel gissning');
@@ -82,6 +83,7 @@ bodyElem.addEventListener('keydown', (event) => {
         ggText.innerText = `Game Over`;
         ul.innerText = wordArray1;
         clue.style.display = `none`;
+        return;
     }
 
     wrongLetter.textContent += ` ` + event.key;
