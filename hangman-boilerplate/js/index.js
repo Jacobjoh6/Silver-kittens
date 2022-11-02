@@ -29,7 +29,6 @@ ul.innerHTML = hiddenWord1;
 console.log(wordArray);
 console.log(hiddenWord);
 
-
 bodyElem.addEventListener('keydown', (event) => {
     const keyPressed = event.key;
     let correctGuess = false;
@@ -50,8 +49,9 @@ bodyElem.addEventListener('keydown', (event) => {
         ul.insertAdjacentHTML('beforeend', li);
     }
     if (ul.innerText === wordToGuess) {
-        gameOver.style.display = `block`;
+        gameOver.style.display = `flex`;
         ggText.innerText = `Du vann!`;
+        return;
     }
     if (correctGuess === false) {
         console.log('Fel gissning');
@@ -73,14 +73,14 @@ bodyElem.addEventListener('keydown', (event) => {
         document.querySelector('figure').classList.add('arms')
         wrongGuesses++;
     }
-    if (correctGuess === false && wrongGuesses === 8) {
+    if (wrongGuesses > 7) {
         console.log('Fel gissning');
         document.querySelector('figure').classList.add('legs')
-        gameOver.style.display = `block`;
+        gameOver.style.display = `flex`;
         ggText.innerText = `Game Over`;
-        console.log(wrongGuesses);
+        ul.innerText = wordArray1;
     }
-    wrongLetter.textContent += ` ` + event.key;
 
+    wrongLetter.textContent += ` ` + event.key;
 
 });
