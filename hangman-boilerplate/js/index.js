@@ -41,6 +41,7 @@ bodyElem.addEventListener('keydown', (event) => {
             console.log(hiddenWord);
         }
     }
+
     ul.innerHTML = ``;
     for (let i = 0; i < hiddenWord.length; i++) {
         let hiddenLetter = hiddenWord[i];
@@ -49,9 +50,8 @@ bodyElem.addEventListener('keydown', (event) => {
         ul.insertAdjacentHTML('beforeend', li);
     }
     if (ul.innerText === wordToGuess) {
-        gameOver.style.display = `flex`;
+        gameOver.style.display = `block`;
         ggText.innerText = `Du vann!`;
-        return;
     }
     if (correctGuess === false) {
         console.log('Fel gissning');
@@ -76,7 +76,7 @@ bodyElem.addEventListener('keydown', (event) => {
     if (wrongGuesses > 7) {
         console.log('Fel gissning');
         document.querySelector('figure').classList.add('legs')
-        gameOver.style.display = `flex`;
+        gameOver.style.display = `block`;
         ggText.innerText = `Game Over`;
         ul.innerText = wordArray1;
     }
