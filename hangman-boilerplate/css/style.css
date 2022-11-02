@@ -35,6 +35,10 @@ body {
     letter-spacing: 0.1rem;
 }
 
+h2 {
+    font-size: 2rem;
+}
+
 figure svg>* {
     opacity: 0;
 }
